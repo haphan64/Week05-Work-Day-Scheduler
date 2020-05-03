@@ -38,8 +38,7 @@ saveButtons.on("click", function() {
                
     // console.log(tasks);
 })
-
-   
+  
 
 // Get current hour to compare to calendar block
 
@@ -47,27 +46,26 @@ saveButtons.on("click", function() {
 
 var currentHour = moment().hour();
 
-if (currentHour > 12) {
-    currentHour = currentHour - 12;
-}
-
     // Determine if each block is past/present/future
 
-// for ( i = 0; i < saveButtons.length; i ++) {
-//     var hour = saveButtons[i];
-//     var hourData = $(this).data("hour");
-//     console.log(hour);
-// }
-
-var hour10 = parseInt($("#10").data("hour"));
-console.log(hour10 > currentHour);
-
-if ( hour10 > currentHour) {
-    console.log ("future");
-    $("#task-" + hour10).addClass("future")
+saveButtons.each(function() {
     
-} else if ( hour10 < currentHour ) {
-    $("#task-" + hour10).addClass("past")
-} else {
-    $("#task-" + hour10).addClass("present")
-};
+    var hourValue = parseInt($(this).data("hour"));
+
+    if ( hourValue > currentHour) {
+        
+        $("#task-" + hourValue).addClass("future")
+        
+    } else if ( hourValue < currentHour ) {
+        
+        $("#task-" + hourValue).addClass("past")
+
+    } else {
+        
+        $("#task-" + hourValue).addClass("present")
+
+    };
+    
+    console.log(hourValue);
+
+});
