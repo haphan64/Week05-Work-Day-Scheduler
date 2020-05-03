@@ -44,7 +44,9 @@ saveButtons.on("click", function() {
 
     // Get current hour
 
-var currentHour = moment().hour();
+var currentHour = parseInt(moment().hour());
+
+console.log(currentHour);
 
     // Determine if each block is past/present/future
 
